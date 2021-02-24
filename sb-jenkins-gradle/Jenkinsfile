@@ -5,7 +5,14 @@ pipeline {
         stage('deploy') {
             steps {
             	sh 'pwd'
-				sh './gradlew bootRun'
+            	sh 'ls -lrth'
+            	
+            	dir('sb-jenkins-gradle') {
+            	    sh 'pwd'
+            	    sh 'ls -lrth'
+            	    sh 'chmod +x gradlew'
+				    sh './gradlew bootJar'    
+            	}
             }
         }
     }
