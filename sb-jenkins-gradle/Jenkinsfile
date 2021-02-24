@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('deploy') {
+            steps {
+            	sh 'pwd'
+            	dir('sb-jenkins') {
+            		sh 'pwd'
+					sh './mvnw spring-boot:run'
+            	}
+            }
+        }
+    }
+}
