@@ -4,7 +4,11 @@ pipeline {
     stages {
         stage('deploy') {
             steps {
-                sh 'cd sb-jenkins && mvn spring-boot:run'
+            	sh 'pwd'
+            	dir('sb-jenkins') {
+            		sh 'pwd'
+					sh './mvnw spring-boot:run'
+            	}
             }
         }
     }
