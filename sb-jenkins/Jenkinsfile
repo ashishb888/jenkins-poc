@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('deploy') {
             steps {
-                sh './sb-jenkins/mvnw spring-boot:run'
+                sh 'cd sb-jenkins && mvn spring-boot:run'
             }
         }
     }
