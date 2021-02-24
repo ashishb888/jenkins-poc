@@ -2,12 +2,16 @@ pipeline {
     agent any
     
     stages {
-        stage('deploy') {
+        stage('build') {
             steps {
             	sh 'pwd'
+            	sh 'ls -lrth'
+            	
             	dir('sb-jenkins') {
-            		sh 'pwd'
-					sh 'mvn spring-boot:run'
+            	    sh 'pwd'
+            	    sh 'ls -lrth'
+            	    sh 'chmod +x mvnw'
+				    sh './mvnw package'    
             	}
             }
         }
